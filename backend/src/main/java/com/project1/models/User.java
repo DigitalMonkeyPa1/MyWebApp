@@ -1,5 +1,6 @@
 package com.project1.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -13,9 +14,9 @@ public class User
 	private String email;
 	private String password;
 	private boolean enabled;
-	@OneToOne(mappedBy="user") // mapped by entity name
+	@OneToOne(mappedBy="user", cascade=CascadeType.ALL) // mapped by entity name
 	private Customer customer;
-	@OneToOne(mappedBy="user")
+	@OneToOne(mappedBy="user", cascade=CascadeType.ALL)
 	private Authorities authorities;
 	
 	public String getEmail() {

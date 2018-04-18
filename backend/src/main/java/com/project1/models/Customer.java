@@ -20,8 +20,9 @@ public class Customer
 	@OneToOne
 	private BillingAddress billingAddress;
 	@OneToOne
-	private ShippingAddress shippingAddress;
-	
+	private ShippingAddress shippingAddress;// FK cart_id
+	@OneToOne
+	private Cart cart;
 	
 	public int getId() {
 		return id;
@@ -64,6 +65,12 @@ public class Customer
 	}
 	public void setShippingAddress(ShippingAddress shippingAddress) {
 		this.shippingAddress = shippingAddress;
+	}
+	public Cart getCart() {
+		return cart;
+	}
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
 	
 }

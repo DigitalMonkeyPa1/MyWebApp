@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.project1.models.Authorities;
 import com.project1.models.BillingAddress;
+import com.project1.models.Cart;
 import com.project1.models.Category;
 import com.project1.models.Customer;
 import com.project1.models.Product;
@@ -60,7 +61,7 @@ public class DBConfiguration
 		lsf.addProperties(hibernateProperties);
 		//An array of Class objects of all the entities
 		//Map all entities to relational table
-		Class classes[]=new Class[]{Product.class, Category.class, Customer.class, User.class, Authorities.class, BillingAddress.class, ShippingAddress.class};
+		Class classes[]=new Class[]{Product.class, Category.class, Customer.class, User.class, Authorities.class, BillingAddress.class, ShippingAddress.class, Cart.class};
 		//localsesionfactorybuilder -> sessionfactory -> map all entities with relation table
 	    return lsf.addAnnotatedClasses(classes).buildSessionFactory();
 	}
