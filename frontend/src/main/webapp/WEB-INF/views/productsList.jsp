@@ -15,14 +15,11 @@
 $(document).ready(function()
 						{
 							var searchForThis = '${searchAttribute}';
-							console.log(" jquery test :");
-							console.log(searchForThis);
-							//document.write(searchForThis);
-							//document.getElementById("test-id").innnerHTML = searchForThis;
+							console.log("Search for this: ",searchForThis);
 							var dataTableProperties = {
-													"lengthMenu":[ [5,7,-1], [5,7,"All"] ],
-													"oSearch":{ "aSearch":searchForThis }
-								  				  };
+														"lengthMenu" : [ [5,7,-1], [5,7,"All"] ],
+														"oSearch"    : { "sSearch":searchForThis }
+								  				  	  };
 							
     						$('#exampleTable').DataTable(dataTableProperties);
 						} 
