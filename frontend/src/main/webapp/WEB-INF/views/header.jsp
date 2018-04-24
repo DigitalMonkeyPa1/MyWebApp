@@ -15,6 +15,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href='<c:url value="/customerRegistrationForm"></c:url>' >Sign Up</a>
 <ul>
 	<li><a href='<c:url value="/searchByCategory?searchCategory=Fruits"></c:url>' >Fruits</a></li>
 	<li><a href='<c:url value="/searchByCategory?searchCategory=Vegetables"></c:url>' >Vegetables</a></li>

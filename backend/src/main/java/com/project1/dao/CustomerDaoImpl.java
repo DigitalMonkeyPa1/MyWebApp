@@ -3,11 +3,15 @@ package com.project1.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.project1.models.Authorities;
 import com.project1.models.Cart;
 import com.project1.models.Customer;
 
+@Repository
+@Transactional
 public class CustomerDaoImpl implements CustomerDao
 {
 	@Autowired
@@ -25,6 +29,7 @@ public class CustomerDaoImpl implements CustomerDao
 		
 		Cart cart = new Cart();
 		customer.setCart(cart);
+		cart.setCustomer(customer);
 		
 		session.saveOrUpdate(customer);
 	}

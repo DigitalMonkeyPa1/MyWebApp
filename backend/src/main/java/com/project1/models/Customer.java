@@ -1,5 +1,6 @@
 package com.project1.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,13 +16,13 @@ public class Customer
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String firstName, lastName, mobileNumber;
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private User user;
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private BillingAddress billingAddress;
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private ShippingAddress shippingAddress;// FK cart_id
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private Cart cart;
 	
 	public int getId() {

@@ -13,14 +13,23 @@ public class BillingAddress
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	private String doorNo, street, city, state, country, zipcode;
+	private String doorNumber, street, city, state, country, zipcode;
+	
 
-	public String getDoorNo() {
-		return doorNo;
+	public int getId() {
+		return id;
 	}
 
-	public void setDoorNo(String doorNo) {
-		this.doorNo = doorNo;
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getDoorNumber() {
+		return doorNumber;
+	}
+
+	public void setDoorNumber(String doorNumber) {
+		this.doorNumber = doorNumber;
 	}
 
 	public String getStreet() {

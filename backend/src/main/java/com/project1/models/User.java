@@ -14,9 +14,9 @@ public class User
 	private String email;
 	private String password;
 	private boolean enabled;
-	@OneToOne(mappedBy="user", cascade=CascadeType.ALL) // mapped by entity name
+	@OneToOne(mappedBy="user", cascade=CascadeType.ALL) // mapped by entity name //cascade=CascadeType.ALL => here not needed
 	private Customer customer;
-	@OneToOne(mappedBy="user", cascade=CascadeType.ALL)
+	@OneToOne(mappedBy="user", cascade=CascadeType.ALL) // mapped by entity name
 	private Authorities authorities;
 	
 	public String getEmail() {
