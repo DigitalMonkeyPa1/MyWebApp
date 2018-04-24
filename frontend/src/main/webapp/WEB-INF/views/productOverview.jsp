@@ -15,7 +15,7 @@ ${productAttribute.id}. ${productAttribute.name}, ${productAttribute.description
 ${productAttribute.quantity}, ${productAttribute.price},
 ${productAttribute.category.name}-${productAttribute.category.id}<br/>
 <img alt='<c:url value="/resources/images/${productAttribute.id}.png"></c:url>' 
-			src='<c:url value="/resources/images/${productAttribute.id}.png"></c:url>' width="64" height="64" >
+			src='<c:url value="/resources/images/${productAttribute.id}.png"></c:url>' width="264" height="64" >
 
 <br/>
 <a href='<c:url value="/allProducts"></c:url>' > Back </a>

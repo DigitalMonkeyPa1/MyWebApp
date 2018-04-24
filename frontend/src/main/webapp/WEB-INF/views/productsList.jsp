@@ -32,7 +32,6 @@ $(document).ready(function()
 <body>
 <h1>productsList.jsp</h1><br/><br/>
 <h2 id="testid"> => ${searchAttribute}</h2><br/>
-<a href='<c:url value="/admin/addProductForm"></c:url>'> Add Product </a><br/>
 
 The list of products are: <br/>
 <table id="exampleTable" >
@@ -55,7 +54,7 @@ The list of products are: <br/>
 		<td>${p.id}</td>
 		<td>
 		<img alt='<c:url value="/resources/images/${p.id}.png"></c:url>' 
-				src='<c:url value="/resources/images/${p.id}.png"></c:url>' width="64" height="64" >
+				src='<c:url value="/resources/images/${p.id}.png"></c:url>' width="264" height="64" >
 			</td>
 		<td>${p.name}</td>
 		<td>${p.category.name}</td>

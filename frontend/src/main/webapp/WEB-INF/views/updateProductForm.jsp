@@ -34,7 +34,7 @@ Enter product details<br/>
 
 <form:label path="image">Image : </form:label><br/>
 <img alt='<c:url value="/resources/images/${productAttribute.id}.png"></c:url>' 
-			src='<c:url value="/resources/images/${productAttribute.id}.png"></c:url>' width="64" height="64" ><br/>
+			src='<c:url value="/resources/images/${productAttribute.id}.png"></c:url>' width="264" height="64" ><br/>
 <form:input path="image" type="file"/><br/>
 
 <br/>

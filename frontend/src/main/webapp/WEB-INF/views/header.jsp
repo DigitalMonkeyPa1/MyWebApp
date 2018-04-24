@@ -4,6 +4,7 @@
 <%@page isELIgnored="false" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 
 <html>
 
@@ -15,13 +16,27 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href='<c:url value="/customerRegistrationForm"></c:url>' >Sign Up</a>
+
+<security:authorize access="hasRole('ROLE_ADMIN')">
+	<a href='<c:url value="/admin/addProductForm"></c:url>'> Add Product </a>
+</security:authorize>
+
+<c:if test="${pageContext.request.userPrincipal.name == null}">
+	<a href='<c:url value="/customerRegistrationForm"></c:url>' > Sign Up </a>
+	<a href='<c:url value="/login"></c:url>' > Sign In </a>
+</c:if>
+
+<c:if test="${pageContext.request.userPrincipal.name != null}">
+	<a href='<c:url value="/j_spring_security_logout"></c:url>' > Logout </a>
+</c:if>
+
 <ul>
 	<li><a href='<c:url value="/searchByCategory?searchCategory=Fruits"></c:url>' >Fruits</a></li>
 	<li><a href='<c:url value="/searchByCategory?searchCategory=Vegetables"></c:url>' >Vegetables</a></li>
 	<li><a href='<c:url value="/searchByCategory?searchCategory=Games"></c:url>' >Games</a></li>
 	<li><a href='<c:url value="/searchByCategory?searchCategory=Toys"></c:url>' >Toys</a></li>
 </ul>
+
 </body>
 
 </html>

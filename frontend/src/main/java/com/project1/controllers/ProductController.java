@@ -165,14 +165,20 @@ public class ProductController
 		
 		// creating and saving image, doing after DB operations is no problem, bcoz image is not going into DB
 		MultipartFile productImage = product.getImage();
-		String rootDirectory = servletContext.getRealPath("/");
-		Path path = Paths.get(rootDirectory+"/WEB-INF/assets/images/"+product.getId()+".png");		
-		try
+		System.out.println("Uploaded Image => name : "+productImage.getName()+", path : "+productImage.getOriginalFilename());
+		if (productImage.getOriginalFilename() != "")
 		{
-			productImage.transferTo(new File(path.toString()));
+			System.out.println("Uploading new image");
+			String rootDirectory = servletContext.getRealPath("/");
+			
+			Path path = Paths.get(rootDirectory+"/WEB-INF/assets/images/"+product.getId()+".png");		
+			try
+			{
+				productImage.transferTo(new File(path.toString()));
+			}
+			catch (IllegalStateException e) {e.printStackTrace();}
+			catch (IOException e) {e.printStackTrace();}
 		}
-		catch (IllegalStateException e) {e.printStackTrace();}
-		catch (IOException e) {e.printStackTrace();}
 		
 		return "redirect:/allProducts"; // not jsp
 	}
@@ -197,8 +203,6 @@ public class ProductController
 		
 		return mV; //"productsList";
 	}
-	
-	
 	
 	
 }
