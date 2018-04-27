@@ -63,7 +63,8 @@ The list of products are: <br/>
 		<td>${p.price}</td>
 		<td><a href="allProducts/${p.id}"> info </a>,
 			<a href='<c:url value="/admin/updateProductForm/${p.id}"></c:url>'> edit </a>,
-			<a href='<c:url value="admin/deleteProduct/${p.id}"></c:url>'> delete </a>
+			<a href='<c:url value="/admin/deleteProduct/${p.id}"></c:url>'> delete </a>
+			<a href="<c:url value='/cart/addToCart/${p.id}?requestedQuantity=1'></c:url>"> add to cart </a>
 			</td>
 	
 	</tr>

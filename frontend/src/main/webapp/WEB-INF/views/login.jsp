@@ -15,7 +15,7 @@
 
 <c:if test="${logoutMsgAttribute!=null}"> <span>${logoutMsgAttribute}</span> </c:if>
 
-<form action='<c:url value="j_spring_security_check" ></c:url>' method="post">
+<form action='<c:url value="/j_spring_security_check" ></c:url>' method="post">
 	Enter email: <input type="text" name="j_username"/> <br/>
 	Enter password: <input type="text" name="j_password" /> <br/>
 	<input type="submit" value="Login"> <br/>

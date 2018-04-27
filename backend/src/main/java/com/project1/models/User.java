@@ -1,8 +1,12 @@
 package com.project1.models;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -18,6 +22,8 @@ public class User
 	private Customer customer;
 	@OneToOne(mappedBy="user", cascade=CascadeType.ALL) // mapped by entity name
 	private Authorities authorities;
+	@OneToMany(mappedBy="user", fetch=FetchType.EAGER)
+	private List<CartItem> cartItems;
 	
 	public String getEmail() {
 		return email;
@@ -48,6 +54,12 @@ public class User
 	}
 	public void setAuthorities(Authorities authorities) {
 		this.authorities = authorities;
+	}
+	public List<CartItem> getCartItems() {
+		return cartItems;
+	}
+	public void setCartItems(List<CartItem> cartItems) {
+		this.cartItems = cartItems;
 	}
 	
 }

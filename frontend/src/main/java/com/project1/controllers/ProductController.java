@@ -185,23 +185,23 @@ public class ProductController
 	
 	
 	@RequestMapping(value="/searchByCategory")
-	public ModelAndView searchByCategory(@RequestParam String searchCategory)//, Model model)
+	public String searchByCategory(@RequestParam String searchCategory, Model model)
 	{
 		System.out.println("SearchByCategory: "+searchCategory);
 		searchCategory = searchCategory.equalsIgnoreCase("all") ? "" : searchCategory;
 		
-		ModelAndView mV = new ModelAndView("productsList");
+		//ModelAndView mV = new ModelAndView("productsList");
 		
-		mV.addObject("searchAttribute", searchCategory);
-		//model.addAttribute("searchAttribute", searchCategory);
+		//mV.addObject("searchAttribute", searchCategory);
+		model.addAttribute("searchAttribute", searchCategory);
 
 		System.out.println("SearchByCategory after edit: "+searchCategory);
 		
 		List<Product> products = productService.getAllProducts();
-		//model.addAttribute("productsAttribute", products);
-		mV.addObject("productsAttribute", products);
+		model.addAttribute("productsAttribute", products);
+		//mV.addObject("productsAttribute", products);
 		
-		return mV; //"productsList";
+		return "productsList"; //mV;
 	}
 	
 	
