@@ -18,6 +18,15 @@ ${productAttribute.category.name}-${productAttribute.category.id}<br/>
 			src='<c:url value="/resources/images/${productAttribute.id}.png"></c:url>' width="264" height="64" >
 
 <br/>
+
+<security:authorize access="hasRole('ROLE_USER')">
+	<a href="<c:url value='/cart/addToCart/${productAttribute.id}?requestedQuantity=1'></c:url>"> add to cart </a>,
+</security:authorize>
+<security:authorize access="hasRole('ROLE_ADMIN')">
+	 <a href='<c:url value="/admin/updateProductForm/${productAttribute.id}"></c:url>'> edit </a>
+	,<a href='<c:url value="/admin/deleteProduct/${productAttribute.id}"></c:url>'> delete </a>
+</security:authorize>.			
+<br/><br/>
 <a href='<c:url value="/allProducts"></c:url>' > Back </a>
 
 </body>

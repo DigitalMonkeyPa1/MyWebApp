@@ -61,10 +61,14 @@ The list of products are: <br/>
 		<td>${p.description}</td>
 		<td>${p.quantity}</td>
 		<td>${p.price}</td>
-		<td><a href="allProducts/${p.id}"> info </a>,
-			<a href='<c:url value="/admin/updateProductForm/${p.id}"></c:url>'> edit </a>,
-			<a href='<c:url value="/admin/deleteProduct/${p.id}"></c:url>'> delete </a>
-			<a href="<c:url value='/cart/addToCart/${p.id}?requestedQuantity=1'></c:url>"> add to cart </a>
+		<td><a href="allProducts/${p.id}"> info </a>
+			<security:authorize access="hasRole('ROLE_USER')">
+				,<a href="<c:url value='/cart/addToCart/${p.id}?requestedQuantity=1'></c:url>"> add to cart </a>
+			</security:authorize>
+			<security:authorize access="hasRole('ROLE_ADMIN')">
+				,<a href='<c:url value="/admin/updateProductForm/${p.id}"></c:url>'> edit </a>
+				,<a href='<c:url value="/admin/deleteProduct/${p.id}"></c:url>'> delete </a>
+			</security:authorize>.
 			</td>
 	
 	</tr>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.project1.models.CartItem;
 import com.project1.models.Product;
@@ -84,9 +85,16 @@ public class CartItemController
 	}
 	
 	@RequestMapping(value="/cart/checkOut")
-	public String doCheckOut(@AuthenticationPrincipal Principal principal, Model model)
+	public ModelAndView doCheckOut(@AuthenticationPrincipal Principal principal, Model model)
 	{
-		return "redirect:/cart/purchaseDetails";
+		ModelAndView modelAndView = new ModelAndView("checkOut");
+		
+		String email = principal.getName();
+		User user = cartItemService.getUser(email);
+		modelAndView.addObject("userNameAttribute", user.getCustomer().getFirstName());
+		modelAndView.addObject("shippingAddressAttribute", user.getCustomer().getShippingAddress());
+		
+		return modelAndView;
 	}
 	
 	@RequestMapping(value="/cart/createOrder")// from shippingaddressform.jsp to createOrder method

@@ -21,6 +21,10 @@
 	<a href='<c:url value="/admin/addProductForm"></c:url>'> Add Product </a>
 </security:authorize>
 
+<security:authorize access="hasRole('ROLE_USER')">
+	<a href="<c:url value='/cart/purchaseDetails'></c:url>"> View Cart </a>
+</security:authorize>
+
 <c:if test="${pageContext.request.userPrincipal.name == null}">
 	<a href='<c:url value="/customerRegistrationForm"></c:url>' > Sign Up </a>
 	<a href='<c:url value="/login"></c:url>' > Sign In </a>
