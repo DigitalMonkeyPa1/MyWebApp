@@ -13,33 +13,47 @@
 <link   rel="stylesheet"       href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Simple Online Shopping</title>
 </head>
 <body>
 
+<a href="<c:url value="/home"></c:url>">Home</a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="<c:url value='/allProducts'></c:url>">All Products</a>
+
 <security:authorize access="hasRole('ROLE_ADMIN')">
+&nbsp;&nbsp;&nbsp;&nbsp;
 	<a href='<c:url value="/admin/addProductForm"></c:url>'> Add Product </a>
 </security:authorize>
 
 <security:authorize access="hasRole('ROLE_USER')">
+	&nbsp;&nbsp;&nbsp;&nbsp;
 	<a href="<c:url value='/cart/purchaseDetails'></c:url>"> View Cart </a>
 </security:authorize>
 
 <c:if test="${pageContext.request.userPrincipal.name == null}">
+	&nbsp;&nbsp;&nbsp;&nbsp;
 	<a href='<c:url value="/customerRegistrationForm"></c:url>' > Sign Up </a>
+	&nbsp;&nbsp;&nbsp;&nbsp;
 	<a href='<c:url value="/login"></c:url>' > Sign In </a>
 </c:if>
 
 <c:if test="${pageContext.request.userPrincipal.name != null}">
+	&nbsp;&nbsp;&nbsp;&nbsp;
 	<a href='<c:url value="/j_spring_security_logout"></c:url>' > Logout </a>
 </c:if>
 
+<br/>
+<hr>
+Categories :
 <ul>
 	<li><a href='<c:url value="/searchByCategory?searchCategory=Fruits"></c:url>' >Fruits</a></li>
 	<li><a href='<c:url value="/searchByCategory?searchCategory=Vegetables"></c:url>' >Vegetables</a></li>
 	<li><a href='<c:url value="/searchByCategory?searchCategory=Games"></c:url>' >Games</a></li>
 	<li><a href='<c:url value="/searchByCategory?searchCategory=Toys"></c:url>' >Toys</a></li>
 </ul>
+
+<hr>
 
 </body>
 

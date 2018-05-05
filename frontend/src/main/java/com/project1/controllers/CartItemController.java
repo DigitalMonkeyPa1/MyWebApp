@@ -91,17 +91,19 @@ public class CartItemController
 		
 		String email = principal.getName();
 		User user = cartItemService.getUser(email);
-		modelAndView.addObject("userNameAttribute", user.getCustomer().getFirstName());
-		modelAndView.addObject("shippingAddressAttribute", user.getCustomer().getShippingAddress());
+		modelAndView.addObject("userAttribute", user);
+		//modelAndView.addObject("userNameAttribute", user.getCustomer().getFirstName());
+		//modelAndView.addObject("shippingAddressAttribute", user.getCustomer().getShippingAddress());
 		
 		return modelAndView;
 	}
 	
+	/*
 	@RequestMapping(value="/cart/createOrder")// from shippingaddressform.jsp to createOrder method
 	public String createOrder(@AuthenticationPrincipal Principal principal, @ModelAttribute ShippingAddress shippingAddress, Model model)
 	{
 		
 		return "redirect:/cart/purchaseDetails";
-	}
+	}*/
 	
 }

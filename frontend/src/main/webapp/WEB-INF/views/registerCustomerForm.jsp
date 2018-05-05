@@ -5,7 +5,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
 </head>
 <body>
 
@@ -15,67 +14,69 @@
 <form:label path="id"></form:label>
 <form:hidden path="id"/>
 
-<form:label path="firstName">Enter FirstName</form:label>
+<form:label path="firstName">Enter FirstName : </form:label>
 <form:input path="firstName"/>
-
-<form:label path="lastName">Enter LastName</form:label>
+<br/>
+<form:label path="lastName">Enter LastName : </form:label>
 <form:input path="lastName"/>
-
-<form:label path="mobileNumber">Enter MobileNumber</form:label>
+<br/>
+<form:label path="mobileNumber">Enter MobileNumber : </form:label>
 <form:input path="mobileNumber"/>
+<br/>
 
 <hr>
 <p align="center"><b>Login credentials</b><br></p>
-<form:label path="user.email">Enter Email </form:label>
+<form:label path="user.email">Enter Email : </form:label>
 <form:input path="user.email"/>
-
-<form:label path="user.password">Enter password</form:label>
+<br/>
+<form:label path="user.password">Enter password : </form:label>
 <form:input path="user.password"/>
+<br/>
 
 <hr>
 <p align="center"><b>Billing Address</b><br></p>
-
-<form:label path="billingAddress.doorNumber">Enter DoorNumber</form:label>
+<form:label path="billingAddress.doorNumber">Enter DoorNumber : </form:label>
 <form:input path="billingAddress.doorNumber"/>
-
-<form:label path="billingAddress.street">Enter Street</form:label>
+<br/>
+<form:label path="billingAddress.street">Enter Street : </form:label>
 <form:input path="billingAddress.street"/>
-
-<form:label path="billingAddress.city">Enter City</form:label>
+<br/>
+<form:label path="billingAddress.city">Enter City : </form:label>
 <form:input path="billingAddress.city"/>
-
-<form:label path="billingAddress.state">Enter State</form:label>
+<br/>
+<form:label path="billingAddress.state">Enter State : </form:label>
 <form:input path="billingAddress.state"/>
-
-<form:label path="billingAddress.country">Enter Country</form:label>
+<br/>
+<form:label path="billingAddress.country">Enter Country : </form:label>
 <form:input path="billingAddress.country"/>
-
-<form:label path="billingAddress.zipcode">Enter ZipCode</form:label>
+<br/>
+<form:label path="billingAddress.zipcode">Enter ZipCode : </form:label>
 <form:input path="billingAddress.zipcode"/>
-
+<br/>
 <hr>
 <p align="center"><b>Shipping Address</b></p>	
 
-<form:label path="shippingAddress.doorNumber">Enter DoorNumber</form:label>
+<form:label path="shippingAddress.doorNumber">Enter DoorNumber : </form:label>
 <form:input path="shippingAddress.doorNumber"/>
-
-<form:label path="shippingAddress.street">Enter Street</form:label>
+<br/>
+<form:label path="shippingAddress.street">Enter Street : </form:label>
 <form:input path="shippingAddress.street"/>
-
-<form:label path="shippingAddress.city">Enter City</form:label>
+<br/>
+<form:label path="shippingAddress.city">Enter City : </form:label>
 <form:input path="shippingAddress.city"/>
-
-<form:label path="shippingAddress.state">Enter State</form:label>
+<br/>
+<form:label path="shippingAddress.state">Enter State : </form:label>
 <form:input path="shippingAddress.state"/>
-
-<form:label path="shippingAddress.country">Enter Country</form:label>
+<br/>
+<form:label path="shippingAddress.country">Enter Country : </form:label>
 <form:input path="shippingAddress.country"/>
-
-<form:label path="shippingAddress.zipcode">Enter ZipCode</form:label>
+<br/>
+<form:label path="shippingAddress.zipcode">Enter ZipCode : </form:label>
 <form:input path="shippingAddress.zipcode"/>
-
+<br/><br/>
 <button type="submit">Register</button>
 </form:form>
 
+<%@ include file="footer.jsp" %>
 </body>
 </html>

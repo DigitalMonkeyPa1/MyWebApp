@@ -21,7 +21,7 @@ $(document).ready(function()
 														"oSearch"    : { "sSearch":searchForThis }
 								  				  	  };
 							
-    						$('#exampleTable').DataTable(dataTableProperties);
+    						$('#productsTable').DataTable(dataTableProperties);
 						} 
 				);
 </script>
@@ -30,11 +30,11 @@ $(document).ready(function()
 </head>
 
 <body>
-<h1>productsList.jsp</h1><br/><br/>
-<h2 id="testid"> => ${searchAttribute}</h2><br/>
-
+<h1>productsList.jsp</h1><br/>
+<h3 id="testid">Searching for category: ${searchAttribute}</h3>
+<br/>
 The list of products are: <br/>
-<table id="exampleTable" >
+<table id="productsTable" >
 <thead>
 	<tr>
 		<th>Id</th>
@@ -48,13 +48,13 @@ The list of products are: <br/>
 	</tr>
 </thead>
 <tbody>
-	<c:forEach items="${productsAttribute}" var="p">
+	<c:forEach var="p" items="${productsAttribute}">
 	<tr>
 	
 		<td>${p.id}</td>
 		<td>
 		<img alt='<c:url value="/resources/images/${p.id}.png"></c:url>' 
-				src='<c:url value="/resources/images/${p.id}.png"></c:url>' width="264" height="64" >
+				src='<c:url value="/resources/images/${p.id}.png"></c:url>' width="64" height="64" >
 			</td>
 		<td>${p.name}</td>
 		<td>${p.category.name}</td>
@@ -76,6 +76,7 @@ The list of products are: <br/>
 
 </tbody>
 </table>
-</body>
 
+<%@ include file="footer.jsp" %>
+</body>
 </html>

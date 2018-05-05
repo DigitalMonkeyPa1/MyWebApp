@@ -52,23 +52,21 @@ public class DBConfiguration
 	public SessionFactory sessionFactory()
 	{
 		System.out.println("Creating SessionFactory");
-		LocalSessionFactoryBuilder lsf=
-				new LocalSessionFactoryBuilder(getDataSource());
-		Properties hibernateProperties=new Properties();
-		hibernateProperties.setProperty(
-				"hibernate.dialect", "org.hibernate.dialect.H2Dialect");
+		LocalSessionFactoryBuilder lsfb = new LocalSessionFactoryBuilder(getDataSource());
+		Properties hibernateProperties = new Properties();
+		hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
 		hibernateProperties.setProperty("hibernate.show_sql", "true");
-		lsf.addProperties(hibernateProperties);
+		lsfb.addProperties(hibernateProperties);
 		//An array of Class objects of all the entities
 		//Map all entities to relational table
 		Class classes[]=new Class[]{Product.class, Category.class, Customer.class, User.class, Authorities.class, BillingAddress.class, ShippingAddress.class, Cart.class, CartItem.class};
 		//localsesionfactorybuilder -> sessionfactory -> map all entities with relation table
-	    return lsf.addAnnotatedClasses(classes).buildSessionFactory();
+	    return lsfb.addAnnotatedClasses(classes).buildSessionFactory();
 	}
 	
 	@Bean
-	public HibernateTransactionManager hibTransManagement()
+	public HibernateTransactionManager hibernateTransManagement()
 	{
 		System.out.println("Creating HibernateTransactionManager");
 		return new HibernateTransactionManager(sessionFactory());

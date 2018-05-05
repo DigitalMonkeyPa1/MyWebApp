@@ -11,14 +11,45 @@
 </head>
 <body>
 <h1>productOverview.jsp</h1><br/><br/>
+<!-- 
 ${productAttribute.id}. ${productAttribute.name}, ${productAttribute.description},
 ${productAttribute.quantity}, ${productAttribute.price},
 ${productAttribute.category.name}-${productAttribute.category.id}<br/>
 <img alt='<c:url value="/resources/images/${productAttribute.id}.png"></c:url>' 
-			src='<c:url value="/resources/images/${productAttribute.id}.png"></c:url>' width="264" height="64" >
+			src='<c:url value="/resources/images/${productAttribute.id}.png"></c:url>' width="64" height="64" >
+-->
+
+<table id="exampleTable" >
+<thead>
+	<tr>
+		<th>Id</th>
+		<th>Image</th>
+		<th>Name</th>
+		<th>Category</th>
+		<th>Description</th>
+		<th>Quantity</th>
+		<th>Price</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+	
+		<td>${productAttribute.id}</td>
+		<td>
+		<img alt='<c:url value="/resources/images/${productAttribute.id}.png"></c:url>' 
+				src='<c:url value="/resources/images/${productAttribute.id}.png"></c:url>' width="64" height="64" >
+			</td>
+		<td>${productAttribute.name}</td>
+		<td>${productAttribute.category.name}</td>
+		<td>${productAttribute.description}</td>
+		<td>${productAttribute.quantity}</td>
+		<td>${productAttribute.price}</td>
+	</tr>
+
+</tbody>
+</table>
 
 <br/>
-
 <security:authorize access="hasRole('ROLE_USER')">
 	<a href="<c:url value='/cart/addToCart/${productAttribute.id}?requestedQuantity=1'></c:url>"> add to cart </a>,
 </security:authorize>
@@ -29,5 +60,6 @@ ${productAttribute.category.name}-${productAttribute.category.id}<br/>
 <br/><br/>
 <a href='<c:url value="/allProducts"></c:url>' > Back </a>
 
+<%@ include file="footer.jsp" %>
 </body>
 </html>

@@ -43,5 +43,6 @@ Enter product details<br/>
 <br/>
 <a href='<c:url value="/allProducts" ></c:url>'>Back</a><br/>
 
+<%@ include file="footer.jsp" %>
 </body>
 </html>

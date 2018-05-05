@@ -31,13 +31,6 @@ public class CartItemDaoImpl implements CartItemDao
 		session.delete(cartitem);
 	}
 
-	public User getUser(String email)
-	{
-		Session session = sessionFactory.getCurrentSession();
-		User user = (User) session.get(User.class, email);
-		return user;
-	}
-
 	public void removeAllCartItemsForUser(String email)
 	{
 		Session session = sessionFactory.getCurrentSession();
@@ -49,8 +42,16 @@ public class CartItemDaoImpl implements CartItemDao
 		}
 	}
 	
+	public User getUser(String email)
+	{
+		Session session = sessionFactory.getCurrentSession();
+		User user = (User) session.get(User.class, email);
+		return user;
+	}
+	
 	//public CustomerOrder createOrder(User user)
 	//{
 	//	
 	//}
+	
 }
